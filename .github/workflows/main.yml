@@ -1,17 +1,13 @@
 name: Test, Build, and Deploy | Modul 01 - Lab2.2 Senior Project
-
 on:
   push:
     branches: [main]
-
 jobs:
   test-build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Testing Build pre-Deploy
@@ -24,11 +20,9 @@ jobs:
   deploy:
     needs: test-build
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - name: Build app on VM
         uses: appleboy/ssh-action@master
